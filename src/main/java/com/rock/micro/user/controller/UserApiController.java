@@ -1,7 +1,7 @@
 package com.rock.micro.user.controller;
 
 import com.rock.micro.base.common.auth.LoginAuth;
-import com.rock.micro.base.data.UserDO;
+import com.rock.micro.base.data.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ public class UserApiController {
     @GetMapping(value = "/test")
     public String test() {
         //尝试获取用户信息
-        UserDO userDO = LoginAuth.USER.get();
+        User user = LoginAuth.USER.get();
         //返回
         return "请求成功!";
     }
