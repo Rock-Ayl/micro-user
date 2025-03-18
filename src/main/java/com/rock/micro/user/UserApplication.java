@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 @SpringBootApplication(exclude = {
         DataSourceAutoConfiguration.class,
         DataSourceTransactionManagerAutoConfiguration.class},
-        scanBasePackages = {"com.rock.micro.user.*"}
+        scanBasePackages = {"com.rock.micro"}
 )
 public class UserApplication {
 
