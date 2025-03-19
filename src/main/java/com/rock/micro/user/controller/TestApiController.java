@@ -1,6 +1,7 @@
 package com.rock.micro.user.controller;
 
 import com.rock.micro.base.common.api.JSONResponse;
+import com.rock.micro.base.common.api.MyException;
 import com.rock.micro.base.common.auth.LoginAuth;
 import com.rock.micro.base.common.constant.HttpConst;
 import com.rock.micro.base.data.User;
@@ -36,6 +37,11 @@ public class TestApiController {
     public String test() {
         //尝试获取用户信息
         User user = LoginAuth.USER.get();
+        //测试
+        if (true) {
+            //抛出
+            throw new MyException(359, "测试");
+        }
         //返回结果
         return JSONResponse.success().putResult(user).toString();
     }
