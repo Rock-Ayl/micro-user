@@ -4,6 +4,7 @@ import com.rock.micro.base.common.api.JSONResponse;
 import com.rock.micro.base.common.auth.LoginAuth;
 import com.rock.micro.base.data.User;
 import com.rock.micro.user.pojo.mdo.TestDO;
+import com.rock.micro.user.serivce.TestDubboService;
 import com.rock.micro.user.serivce.TestService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,6 +31,9 @@ public class TestApiController {
     @Autowired
     private TestService testService;
 
+    @Autowired
+    private TestDubboService testDubboService;
+
     @LoginAuth
     @ApiOperation(value = "测试接口")
     @GetMapping(value = "/test")
@@ -44,6 +48,27 @@ public class TestApiController {
         List<TestDO> doList = testService.selectByCondition(params);
         //返回结果
         return JSONResponse.success().put("result", doList).put("user", user).toString();
+    }
+
+    @LoginAuth
+    @ApiOperation(value = "测试远程调用")
+    @GetMapping(value = "/commonDubbo")
+    public String commonDubbo(String word) {
+        //远程调用结果
+        String result;
+        try {
+
+            /**
+             * 必须在外层tryCatch抛出,否则无法走统一抛出异常实现
+             */
+
+            //远程调用实现
+            result = testDubboService.helloWorld2(word);
+        } catch (Exception e) {
+            throw e;
+        }
+        //返回结果
+        return JSONResponse.success().put("result", result).toString();
     }
 
 }

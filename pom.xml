@@ -55,7 +55,17 @@
         <dependency>
             <groupId>com.rock</groupId>
             <artifactId>micro-base</artifactId>
-            <version>1.0.8-SNAPSHOT</version>
+            <version>1.0.12-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rock</groupId>
+            <artifactId>micro-user-api</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rock</groupId>
+            <artifactId>micro-common-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <!-- Spring Boot 基础套件 -->
@@ -83,16 +93,33 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
+        <!-- Spring dubbo -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>2.7.15</version>
+        </dependency>
+
+        <!-- spring cloud alibaba -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>2021.0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>2021.0.1.0</version>
+        </dependency>
+
         <!-- 数据存储 -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-mongodb</artifactId>
-            <version>3.2.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
-            <version>4.1.10</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
