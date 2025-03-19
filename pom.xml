@@ -55,7 +55,7 @@
         <dependency>
             <groupId>com.rock</groupId>
             <artifactId>micro-base</artifactId>
-            <version>1.0.12-SNAPSHOT</version>
+            <version>1.0.13-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.rock</groupId>

@@ -2,6 +2,7 @@ package com.rock.micro.user.controller;
 
 import com.rock.micro.base.common.api.JSONResponse;
 import com.rock.micro.base.common.auth.LoginAuth;
+import com.rock.micro.base.common.constant.HttpConst;
 import com.rock.micro.base.data.User;
 import com.rock.micro.user.pojo.mdo.TestDO;
 import com.rock.micro.user.serivce.TestDubboService;
@@ -36,7 +37,7 @@ public class TestApiController {
 
     @LoginAuth
     @ApiOperation(value = "测试接口")
-    @GetMapping(value = "/test")
+    @GetMapping(value = "/test", produces = HttpConst.RESPONSE_HEADERS_CONTENT_TYPE_APPLICATION_JSON)
     public String test() {
         //尝试获取用户信息
         User user = LoginAuth.USER.get();
@@ -52,7 +53,7 @@ public class TestApiController {
 
     @LoginAuth
     @ApiOperation(value = "测试远程调用")
-    @GetMapping(value = "/commonDubbo")
+    @GetMapping(value = "/commonDubbo", produces = HttpConst.RESPONSE_HEADERS_CONTENT_TYPE_APPLICATION_JSON)
     public String commonDubbo(String word) {
         //远程调用结果
         String result;
