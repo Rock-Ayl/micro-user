@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class TestMysql {
@@ -26,6 +28,17 @@ class TestMysql {
         list.add(one);
         list.add(two);
         testService.create(list);
+        System.out.println();
+    }
+
+    @Test
+    void sqlQuery() {
+        //查询条件
+        Map<String, Object> params = new HashMap<>();
+        //限制邮箱
+        params.put("email", "11111测试");
+        //查询
+        List<TestDO> doList = testService.selectByCondition(params);
         System.out.println();
     }
 

@@ -6,13 +6,19 @@ import com.rock.micro.user.mapper.TestMapper;
 import com.rock.micro.user.pojo.mdo.TestDO;
 import com.rock.micro.user.serivce.TestService;
 import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class TestServiceImpl extends ServiceImpl<TestMapper, TestDO> implements TestService {
+
+    @Autowired
+    private TestMapper testMapper;
 
     @Override
     public Collection<TestDO> create(Collection<TestDO> doList) {
@@ -30,6 +36,12 @@ public class TestServiceImpl extends ServiceImpl<TestMapper, TestDO> implements 
         this.saveBatch(doList);
         //返回
         return doList;
+    }
+
+    @Override
+    public List<TestDO> selectByCondition(Map<String, Object> params) {
+        //返回
+        return testMapper.selectByCondition(params);
     }
 
 }
