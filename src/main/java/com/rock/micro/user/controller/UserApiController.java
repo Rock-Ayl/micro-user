@@ -38,9 +38,10 @@ public class UserApiController {
     @ApiOperation(value = "注册新用户")
     @PostMapping(value = "/addUser", produces = HttpConst.RESPONSE_HEADERS_CONTENT_TYPE_APPLICATION_JSON)
     public String addUser(@RequestBody UserDO userDO) {
-        //todo
+        //创建
+        UserDO result = userService.create(userDO);
         //返回
-        return JSONResponse.success().putResult(null).toString();
+        return JSONResponse.success().putResult(result).toString();
     }
 
 }

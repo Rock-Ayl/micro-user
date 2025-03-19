@@ -14,6 +14,14 @@ import java.util.Collection;
 public interface UserService extends IService<UserDO> {
 
     /**
+     * 创建用户
+     *
+     * @param userDO 用户实体
+     * @return
+     */
+    UserDO create(UserDO userDO);
+
+    /**
      * 批量创建用户
      *
      * @param doList 用户实体集合

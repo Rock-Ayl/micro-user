@@ -29,6 +29,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements 
     private UserMapper userMapper;
 
     @Override
+    public UserDO create(UserDO userDO) {
+        //初始化创建
+        BaseDO.createBuild(userDO);
+        //插入
+        this.save(userDO);
+        //返回
+        return userDO;
+    }
+
+    @Override
     public Collection<UserDO> create(Collection<UserDO> doList) {
         //判空
         if (CollectionUtils.isEmpty(doList)) {
