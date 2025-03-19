@@ -19,7 +19,7 @@ public class DemoAsyncJobExecute {
     private static final Logger logger = LoggerFactory.getLogger(DemoAsyncJobExecute.class);
 
     //异步任务实现,需要指定对应bean
-    @Async(ThreadPoolTaskConfig.SYNC_TASK_POOL_EXECUTOR)
+    @Async(AsyncJobThreadPoolTaskConfig.SYNC_TASK_POOL_EXECUTOR)
     public void asyncExecute() {
         logger.info("异步任务随机数:[{}]", new Random().nextInt(100));
     }

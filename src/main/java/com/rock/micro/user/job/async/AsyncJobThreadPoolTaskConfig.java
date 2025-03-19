@@ -17,7 +17,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @Date 2022-03-14
  */
 @Configuration
-public class ThreadPoolTaskConfig {
+public class AsyncJobThreadPoolTaskConfig {
 
     //本配置的bean名名称
     public static final String SYNC_TASK_POOL_EXECUTOR = "syncTaskPoolExecutor";
