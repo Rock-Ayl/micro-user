@@ -22,6 +22,21 @@ public interface UserService extends IService<UserDO> {
     Collection<UserDO> create(Collection<UserDO> doList);
 
     /**
+     * 根据邮箱,获取用户信息
+     *
+     * @param email 邮箱
+     * @return
+     */
+    UserDO getByEmail(String email);
+
+    /**
+     * 用户信息脱敏
+     *
+     * @param user
+     */
+    void desensitization(UserDO user);
+
+    /**
      * 邮箱登录参数
      */
     @Setter
