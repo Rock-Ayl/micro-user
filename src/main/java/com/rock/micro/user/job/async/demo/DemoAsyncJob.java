@@ -1,4 +1,4 @@
-package com.rock.micro.user.job.async;
+package com.rock.micro.user.job.async.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;

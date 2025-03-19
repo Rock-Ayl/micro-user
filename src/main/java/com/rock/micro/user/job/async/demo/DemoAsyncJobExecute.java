@@ -1,5 +1,6 @@
-package com.rock.micro.user.job.async;
+package com.rock.micro.user.job.async.demo;
 
+import com.rock.micro.user.job.async.AsyncJobThreadPoolTaskConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
