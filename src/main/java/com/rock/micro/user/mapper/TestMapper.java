@@ -1,14 +1,14 @@
 package com.rock.micro.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.rock.micro.user.pojo.mdo.UserDO;
+import com.rock.micro.user.pojo.mdo.TestDO;
 
 /**
- * 用户 mapper
+ * 测试 mapper
  *
  * @Author ayl
  * @Date 2022-03-13
  */
-public interface UserMapper extends BaseMapper<UserDO> {
+public interface TestMapper extends BaseMapper<TestDO> {
 
 }

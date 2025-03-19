@@ -8,16 +8,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 用户实体
+ * 测试实体
  *
  * @Author ayl
  * @Date 2022-03-13
  */
 @Getter
 @Setter
-@ApiModel("用户实体")
-@TableName("micro_user_user")
-public class UserDO extends BaseDO {
+@ApiModel("测试实体")
+@TableName("micro_user_test")
+public class TestDO extends BaseDO {
 
     @ApiModelProperty("名称")
     private String name;
