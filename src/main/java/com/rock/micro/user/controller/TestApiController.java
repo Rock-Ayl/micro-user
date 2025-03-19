@@ -4,7 +4,6 @@ import com.rock.micro.base.common.api.JSONResponse;
 import com.rock.micro.base.common.auth.LoginAuth;
 import com.rock.micro.base.common.constant.HttpConst;
 import com.rock.micro.base.data.User;
-import com.rock.micro.user.pojo.mdo.TestDO;
 import com.rock.micro.user.serivce.TestDubboService;
 import com.rock.micro.user.serivce.TestService;
 import io.swagger.annotations.Api;
@@ -13,10 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 测试控制层
@@ -41,14 +36,8 @@ public class TestApiController {
     public String test() {
         //尝试获取用户信息
         User user = LoginAuth.USER.get();
-        //查询条件
-        Map<String, Object> params = new HashMap<>();
-        //限制邮箱
-        params.put("email", "11111测试");
-        //查询
-        List<TestDO> doList = testService.selectByCondition(params);
         //返回结果
-        return JSONResponse.success().put("result", doList).put("user", user).toString();
+        return JSONResponse.success().putResult(user).toString();
     }
 
     @LoginAuth
