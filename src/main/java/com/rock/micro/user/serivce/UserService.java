@@ -2,6 +2,9 @@ package com.rock.micro.user.serivce;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.rock.micro.user.pojo.mdo.UserDO;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Collection;
 
@@ -17,5 +20,28 @@ public interface UserService extends IService<UserDO> {
      * @return
      */
     Collection<UserDO> create(Collection<UserDO> doList);
+
+    /**
+     * 邮箱登录参数
+     */
+    @Setter
+    @Getter
+    public static class LoginParam {
+
+        @ApiModelProperty("邮箱")
+        private String email;
+
+        @ApiModelProperty("密码")
+        private String pwd;
+
+    }
+
+    /**
+     * 根据邮箱,登录并返回token
+     *
+     * @param loginParam
+     * @return
+     */
+    String loginByEmail(LoginParam loginParam);
 
 }

@@ -32,4 +32,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements 
         return doList;
     }
 
+    @Override
+    public String loginByEmail(LoginParam loginParam) {
+        return null;
+    }
+
 }
