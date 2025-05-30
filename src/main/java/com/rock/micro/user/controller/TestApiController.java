@@ -31,7 +31,6 @@ public class TestApiController {
     @Autowired
     private TestDubboService testDubboService;
 
-    @LoginAuth
     @ApiOperation(value = "测试接口")
     @GetMapping(value = "/test", produces = HttpConst.RESPONSE_HEADERS_CONTENT_TYPE_APPLICATION_JSON)
     public String test() {
@@ -46,7 +45,6 @@ public class TestApiController {
         return JSONResponse.success().putResult(user).toString();
     }
 
-    @LoginAuth
     @ApiOperation(value = "测试远程调用")
     @GetMapping(value = "/commonDubbo", produces = HttpConst.RESPONSE_HEADERS_CONTENT_TYPE_APPLICATION_JSON)
     public String commonDubbo(String word) {
