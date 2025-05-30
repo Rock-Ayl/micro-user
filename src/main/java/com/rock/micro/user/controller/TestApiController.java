@@ -40,7 +40,7 @@ public class TestApiController {
         //测试
         if (true) {
             //抛出
-            throw new MyException(359, "测试");
+            throw new MyException("测试");
         }
         //返回结果
         return JSONResponse.success().putResult(user).toString();

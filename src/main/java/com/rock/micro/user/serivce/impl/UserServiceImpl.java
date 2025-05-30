@@ -84,21 +84,21 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements 
         //判空
         if (StringUtils.isAnyBlank(email, pwd)) {
             //抛出
-            throw new MyException(500, "邮箱、密码存在空值");
+            throw new MyException("邮箱、密码存在空值");
         }
         //查询是否存在当前账号
         UserDO userDO = getByEmail(email);
         //判空
         if (userDO == null) {
             //抛出
-            throw new MyException(500, "不存在邮箱");
+            throw new MyException("不存在邮箱");
         }
         //获取账号密码
         String userPwd = userDO.getPwd();
         //如果密码错误
         if (pwd.equals(userPwd) == false) {
             //抛出
-            throw new MyException(500, "密码不正确");
+            throw new MyException("密码不正确");
         }
         //用户id
         String userId = userDO.getId();
