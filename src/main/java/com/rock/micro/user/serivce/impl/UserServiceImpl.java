@@ -106,8 +106,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements 
         String token = UserExtraUtils.creatUserToken(userId);
         //用户实体脱敏
         desensitization(userDO);
-        //写入缓存,有效期1天
-        baseRedisService.setAndTime(RedisKey.USER_LOGIN_AUTH_SET + token, FastJsonExtraUtils.toJSONString(userDO), 3600 * 24);
+        //写入用户信息缓存,有效期1天
+        boolean userCacheSaved = baseRedisService.setAndTime(RedisKey.USER_LOGIN_AUTH_SET + token, FastJsonExtraUtils.toJSONString(userDO), 3600 * 24);
+        //如果用户信息缓存写入失败
+        if (userCacheSaved == false) {
+            //抛出
+            throw new MyException("登录状态保存失败,请稍后重试");
+        }
+        //记录用户当前有效token,有效期1天
+        boolean userTokenSaved = baseRedisService.setAndTime(RedisKey.USER_LOGIN_AUTH_SET_USER_USER_ID_WITH_TOKEN + userId, token, 3600 * 24);
+        //如果有效token写入失败
+        if (userTokenSaved == false) {
+            //抛出
+            throw new MyException("登录状态保存失败,请稍后重试");
+        }
         //返回
         return token;
     }
